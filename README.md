@@ -12,14 +12,11 @@ Can make online game with ease and quick
 1. Extract `Networking_with_Supersocket.gml` in your **Project**
 1. Typing basic networking code in `Client`, `Server` and **Enjoy !**
 
-[Try it](https://github.com/des5141/Networking-with-Supersocket/blob/master/Networking_with_Supersocket.gml)
+**[Networking_with-Supersocket.gml](https://github.com/des5141/Networking-with-Supersocket/blob/master/Networking_with_Supersocket.gml)**
+and **[SuperSocket repo](https://github.com/kerryjiang/SuperSocket)**
 
 > I upload new functions on my [blog](https://blog.naver.com/rhea31) about this repo  
 > Also [@Dev_Liberty](https://twitter.com/Dev_Liberty) on twitter for updates.
-
-## Follow
-
-**[SuperSocket](https://github.com/kerryjiang/SuperSocket)**
 
 ## Support Git History
 
