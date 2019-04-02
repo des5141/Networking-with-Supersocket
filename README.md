@@ -16,7 +16,7 @@ Can make online game with ease and quick
 and **[SuperSocket repo](https://github.com/kerryjiang/SuperSocket)**
 
 > I upload new functions on my [blog](https://blog.naver.com/rhea31) about this repo  
-> And I Also [@Dev_Liberty](https://twitter.com/Dev_Liberty) on twitter for updates.
+> And I also [@Dev_Liberty](https://twitter.com/Dev_Liberty) on twitter for updates.
 
 ## Support Git History
 
