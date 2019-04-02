@@ -29,4 +29,4 @@ Based on these amazing projects:
 
 ## License
 
-GNU Lesser General Public License v3.0
+Apache License 2.0
