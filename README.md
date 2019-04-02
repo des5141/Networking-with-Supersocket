@@ -10,10 +10,12 @@ Can make online game with ease and quick
 
 1. Go to a file in **GitHub**
 1. Extract `Networking_with_Supersocket.gml` in your **Project**
-1. Typing basic networking code in `Client` and `Server`
-1. **Enjoy!**
+1. Typing basic networking code in `Client`, `Server` and **Enjoy !**
 
-[Try it](https://github.com/des5141/Networking-with-Supersocket/tree/master/GMS%201.4)
+[Try it](https://github.com/des5141/Networking-with-Supersocket/blob/master/Networking_with_Supersocket.gml)
+
+> I upload new functions on my [blog](https://blog.naver.com/rhea31) about this repo  
+> Also [@Dev_Liberty](https://twitter.com/Dev_Liberty) on twitter for updates.
 
 ## Extensions
 
