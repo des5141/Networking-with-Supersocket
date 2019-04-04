@@ -1,6 +1,6 @@
 <div align="center">
 <a href="https://github.com/des5141/Networking-with-Supersocket/wiki">
-<img alt="Go To Wiki" src="./Image/run.gif" width="500" />
+<img alt="Go To Wiki" src="./run.gif" width="500" />
 </a>
 </div>
 

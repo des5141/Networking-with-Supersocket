@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CGD;
 using SuperSocket.Common;
 using SuperSocket.SocketBase;
 using SuperSocket.SocketBase.Config;
@@ -18,6 +19,9 @@ namespace SuperSocketNetwork.Ncs
 
         public NcsMain(ServerConfig config)
         {
+            // Set buffer
+            NcsTemplateBuffer.SetTempBuffer();
+
             for (int i = 0; i < Program.space_max; i++)
             {
                 user_list.Add(new List<NcsUser>());
@@ -63,82 +67,25 @@ namespace SuperSocketNetwork.Ncs
 
         void NcsServer_NewRequestReceived(NcsUser user, NcsRequestInfo requestInfo)
         {
-            NcsBuffer buffer = new NcsBuffer(requestInfo.Body);
-            int space_type = buffer.pop_sint16();
-            int signal = buffer.pop_sint16();
+            var buffer = requestInfo.Buffer;
 
-            // Send To Server
-            if (requestInfo.Key == Program.SendToServer)
+            uint bufferLength = buffer.extract_uint();
+            ushort signal = buffer.extract_ushort();
+
+            switch (signal)
             {
-                switch (signal)
+                case Program.signal_heartbeat_first:
                 {
-                    case Program.signal_heartbeat_first:
-                        {
-                            NcsBuffer heartbeat_buffer = new NcsBuffer(Program.signal_heartbeat_second, Program.SendToClient, Program.MySpace);
-                            heartbeat_buffer.push_size();
-                            user.Send(heartbeat_buffer.write_buffer, 0, heartbeat_buffer.write_offset);
-                            user.heartbeat = true;
-                        }
-                        break;
-
-                    case Program.signal_login:
-                        {
-                            Console.WriteLine("Login : " + buffer.pop_string());
-                            user.authentication = true;
-                            UserSpace(user, 0);
-
-                        }
-                        break;
-
-                    default:
-                        {
-                            Console.WriteLine("unvaild : " + signal);
-                        }
-                        break;
+                    user.Send(NcsTemplateBuffer.HeartbeatBuffer2);
+                    user.heartbeat = true;
                 }
-            }
+                    break;
 
-            // Send To Client
-            else if (requestInfo.Key == Program.SendToClient)
-            {
-                if (user.authentication == true)
+                default:
                 {
-                    switch (space_type)
-                    {
-                        case Program.MySpace:
-                            {
-                                foreach (NcsUser index in user_list[user.space])
-                                {
-                                    if (index != user)
-                                        index.Send(requestInfo.Buffer, 0, requestInfo.Buffer.Length);
-                                }
-                            }
-                            break;
-
-                        case Program.AllSpace:
-                            {
-                                for (int i = 0; i < Program.space_max; i++)
-                                {
-                                    foreach (NcsUser index in user_list[i])
-                                    {
-                                        if (index != user)
-                                            index.Send(requestInfo.Buffer, 0, requestInfo.Buffer.Length);
-                                    }
-                                }
-                            }
-                            break;
-
-                        default:
-                            {
-                                foreach (NcsUser index in user_list[space_type])
-                                {
-                                    if (index != user)
-                                        index.Send(requestInfo.Buffer, 0, requestInfo.Buffer.Length);
-                                }
-                            }
-                            break;
-                    }
+                    Console.WriteLine("unvaild : " + signal);
                 }
+                    break;
             }
         }
 

@@ -36,7 +36,6 @@ namespace SuperSocketNetwork
 
         // Server Run
         public static NcsMain ncsServer = new NcsMain(mConfig);
-        
         static void Main(string[] args)
         {
             while (true)

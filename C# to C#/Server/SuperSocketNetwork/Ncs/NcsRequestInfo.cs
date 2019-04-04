@@ -1,5 +1,6 @@
 ﻿using SuperSocket.SocketBase.Protocol;
 using System;
+using CGD;
 
 namespace SuperSocketNetwork.Ncs
 {
@@ -10,14 +11,13 @@ namespace SuperSocketNetwork.Ncs
         public int Key { get; }
 
         public byte[] Body { get; }
+        public CGD.buffer Buffer { get; }
 
-        public byte[] Buffer { get; }
-
-        public NcsRequestInfo(int key, byte[] body, byte[] buffer = null)
+        public NcsRequestInfo(int key, byte[] body, byte[] buffer)
         {
             this.Key = key;
             this.Body = body;
-            this.Buffer = buffer;
+            Buffer = new CGD.buffer(buffer, 0, buffer.Length);
         }
     }
 }

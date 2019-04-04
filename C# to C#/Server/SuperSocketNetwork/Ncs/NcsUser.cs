@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Threading.Tasks;
+using CGD;
 using SuperSocket.SocketBase;
 using SuperSocket.SocketBase.Protocol;
 
@@ -15,6 +16,7 @@ namespace SuperSocketNetwork.Ncs
         public string Pid = String.Empty;
         public int space = -1; // -1 is Null
         public bool authentication = false;
+
 
         ///  Override Functions
         protected override void OnSessionStarted()
@@ -43,9 +45,8 @@ namespace SuperSocketNetwork.Ncs
                 else
                     heartbeat_count++;
 
-                NcsBuffer buffer = new NcsBuffer(Program.signal_heartbeat_first, Program.SendToClient, Program.MySpace);
-                buffer.push_size();
-                Send(buffer.write_buffer, 0, buffer.write_offset);
+
+                Send(NcsTemplateBuffer.HeartbeatBuffer1);
 
                 await Task.Delay(3000);
 
@@ -55,10 +56,14 @@ namespace SuperSocketNetwork.Ncs
                 }
                 else
                     heartbeat_start();
-                
+
                 if (heartbeat_count >= 3)
                     heartbeat_count = 0;
             }).Start();
+        }
+        public void Send(CGD.buffer buffer)
+        {
+            this.Send(buffer.buf, 0, buffer.len);
         }
     }
 }
