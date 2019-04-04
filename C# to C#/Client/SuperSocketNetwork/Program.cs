@@ -20,8 +20,9 @@ namespace SuperSocketNetwork_Console
             Console.WriteLine("DataReceived Count  : {0}", count);
             Console.WriteLine("DataReceived Length : {0}", length);
             Console.WriteLine();
-            Console.WriteLine("Ping : 0");
+            Console.WriteLine("Ping :");
             Console.CursorVisible = false;
+            NcsTemplateBuffer.SetTempBuffer();
 
             tcpSession = new AsyncTcpSession(new IPEndPoint(IPAddress.Parse("127.0.0.1"), 65535));
 
@@ -63,18 +64,16 @@ namespace SuperSocketNetwork_Console
             switch (bufferType)
             {
                 case 1:
-                    Console.SetCursorPosition(7, 3);
-                    Console.Write(pingStopwatch.ElapsedMilliseconds);
-                    pingStopwatch.Stop();
+                    pingStopwatch.Start();
                     session.Send(NcsTemplateBuffer.HeartbeatBuffer1);
                     break;
                 case 2:
-                    new Task( async () =>
-                    {
-                        await Task.Delay(1000);
-                        session.Send(NcsTemplateBuffer.HeartbeatBuffer1);
-                        pingStopwatch.Restart();
-                    }).Start();
+                    Console.SetCursorPosition(7, 3);
+                    pingStopwatch.Stop();
+                    Console.SetCursorPosition(7, 3);
+                    Console.Write(pingStopwatch.ElapsedMilliseconds + "              ");
+                    Debug.WriteLine(pingStopwatch.ElapsedMilliseconds);
+                    pingStopwatch.Reset();
                     break;
             }
             
@@ -87,7 +86,6 @@ namespace SuperSocketNetwork_Console
 
         private static void tcpSession_Connected(object sender, EventArgs e)
         {
-            pingStopwatch.Start();
         }
     }
 }
