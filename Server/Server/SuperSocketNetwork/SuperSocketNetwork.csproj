@@ -66,11 +66,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Networking with Supersocket\Additional\KeyWaiting.cs" />
-    <Compile Include="Source\Event\ServerNewRequestReceived.cs" />
-    <Compile Include="Source\Event\ServerNewSessionConnected.cs" />
-    <Compile Include="Source\Event\UserOnSessionClosed.cs" />
-    <Compile Include="Source\Event\UserOnSessionStarted.cs" />
-    <Compile Include="Source\Event\ServerSessionClosed.cs" />
+    <Compile Include="Source\Session\ServerNewRequestReceived.cs" />
+    <Compile Include="Source\Session\ServerNewSessionConnected.cs" />
+    <Compile Include="Source\User\Event\UserOnSessionClosed.cs" />
+    <Compile Include="Source\User\Event\UserOnSessionStarted.cs" />
+    <Compile Include="Source\Session\ServerSessionClosed.cs" />
     <Compile Include="Networking with Supersocket\Frame\Function\NcsByteFunction.cs" />
     <Compile Include="Networking with Supersocket\Frame\NcsSignal.cs" />
     <Compile Include="Networking with Supersocket\Frame\User\NcsUserData.cs" />

@@ -2,7 +2,7 @@
 
 namespace SuperSocketNetwork
 {
-    partial class NcsUser : AppSession<NcsUser, NcsRequestInfo>
+    partial class NcsUser
     {
         protected override void OnSessionStarted()
         {

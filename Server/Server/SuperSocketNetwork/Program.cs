@@ -1,7 +1,8 @@
 ﻿using SuperSocket.SocketBase;
 using SuperSocket.SocketBase.Config;
+using SuperSocketNetwork;
 
-namespace SuperSocketNetwork
+namespace Source
 {
     class Program
     {
