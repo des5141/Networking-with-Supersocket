@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using CGD;
 
-namespace SuperSocketNetwork.Ncs
+namespace SuperSocketNetwork
 {
     public static class NcsTemplateBuffer
     {

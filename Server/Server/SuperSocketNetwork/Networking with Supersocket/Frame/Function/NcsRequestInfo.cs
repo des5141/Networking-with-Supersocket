@@ -2,7 +2,7 @@
 using System;
 using CGD;
 
-namespace SuperSocketNetwork.Ncs
+namespace SuperSocketNetwork
 {
     public class NcsRequestInfo : RequestInfo<NcsRequestInfo>
     {

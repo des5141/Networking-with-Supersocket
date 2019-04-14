@@ -2,7 +2,7 @@
 using SuperSocket.SocketBase.Config;
 using SuperSocket.SocketBase.Protocol;
 
-namespace SuperSocketNetwork.Ncs
+namespace SuperSocketNetwork
 {
     public class NcsServer : AppServer<NcsUser, NcsRequestInfo>
     {

@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using CGD;
 using SuperSocket.SocketBase;
 
-namespace SuperSocketNetwork.Ncs
+namespace SuperSocketNetwork
 {
     public partial class NcsUser : AppSession<NcsUser, NcsRequestInfo>
     {

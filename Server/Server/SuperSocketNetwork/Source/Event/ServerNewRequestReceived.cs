@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SuperSocketNetwork.Ncs
+namespace SuperSocketNetwork
 {
     class ServerNewRequestReceived
     {

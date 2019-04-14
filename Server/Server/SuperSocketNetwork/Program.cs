@@ -1,7 +1,5 @@
-﻿using System;
-using SuperSocket.SocketBase;
+﻿using SuperSocket.SocketBase;
 using SuperSocket.SocketBase.Config;
-using SuperSocketNetwork.Ncs;
 
 namespace SuperSocketNetwork
 {
@@ -15,14 +13,10 @@ namespace SuperSocketNetwork
                 Ip = "Any",
                 MaxConnectionNumber = 5000,
                 Mode = SocketMode.Tcp,
-                Name = "NcsMain",
+                Name = "NcsMain"
             };
-            NcsMain ncsServer = new NcsMain(mConfig);
-            while (true)
-            {
-                Console.ReadLine();
-            }
+            NcsMain ncsServer = new NcsMain(mConfig, ServerNewSessionConnected.func, ServerSessionClosed.func, ServerNewRequestReceived.func);
+            KeyWaiting.func();
         }
-
     }
 }

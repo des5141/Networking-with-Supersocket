@@ -1,9 +1,8 @@
 ﻿using System;
 using SuperSocket.Common;
 using SuperSocket.Facility.Protocol;
-using SuperSocketNetwork.Function;
 
-namespace SuperSocketNetwork.Ncs
+namespace SuperSocketNetwork
 {
     public class NcsReceiveFilter : FixedHeaderReceiveFilter<NcsRequestInfo>
     {

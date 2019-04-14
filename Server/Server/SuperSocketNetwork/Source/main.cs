@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SuperSocketNetwork
+namespace Source
 {
-    class NcsUserData
+    class main
     {
+
     }
 }

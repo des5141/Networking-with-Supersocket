@@ -1,6 +1,6 @@
 ﻿using SuperSocket.SocketBase;
 
-namespace SuperSocketNetwork.Ncs
+namespace SuperSocketNetwork
 {
     partial class NcsUser : AppSession<NcsUser, NcsRequestInfo>
     {

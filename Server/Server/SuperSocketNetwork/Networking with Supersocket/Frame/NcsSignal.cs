@@ -1,4 +1,4 @@
-﻿namespace SuperSocketNetwork.Ncs
+﻿namespace SuperSocketNetwork
 {
     class NcsSignal
     {

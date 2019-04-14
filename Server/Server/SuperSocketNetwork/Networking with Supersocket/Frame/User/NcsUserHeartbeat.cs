@@ -1,7 +1,7 @@
 ﻿using SuperSocket.SocketBase;
 using System.Threading.Tasks;
 
-namespace SuperSocketNetwork.Ncs
+namespace SuperSocketNetwork
 {
     partial class NcsUser : AppSession<NcsUser, NcsRequestInfo>
     {
