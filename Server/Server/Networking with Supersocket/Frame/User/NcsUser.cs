@@ -1,9 +1,8 @@
 ﻿using System;
-using System.Threading.Tasks;
 using CGD;
 using SuperSocket.SocketBase;
 
-namespace SuperSocketNetwork
+namespace Networking_with_Supersocket
 {
     public partial class NcsUser : AppSession<NcsUser, NcsRequestInfo>
     {

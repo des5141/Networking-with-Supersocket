@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SuperSocketNetwork
+namespace Networking_with_Supersocket
 {
     class ServerNewRequestReceived
     {
@@ -11,7 +11,7 @@ namespace SuperSocketNetwork
             ushort signal = buffer.extract_ushort();
             switch (signal)
             {
-                case NcsSignal.signal_heartbeat_first:
+                case Signal.signal_heartbeat_first:
                     user.Send(NcsTemplateBuffer.HeartbeatBuffer2);
                     user.heartbeat = true;
                     break;

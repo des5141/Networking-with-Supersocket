@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SuperSocketNetwork
+namespace Networking_with_Supersocket
 {
     public static class NcsByteFunction
     {

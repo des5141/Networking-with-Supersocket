@@ -1,6 +1,6 @@
-﻿namespace SuperSocketNetwork
+﻿namespace Networking_with_Supersocket
 {
-    class NcsSignal
+    public class Signal
     {
         public const int signal_heartbeat_first = 1;
         public const int signal_heartbeat_second = 2;

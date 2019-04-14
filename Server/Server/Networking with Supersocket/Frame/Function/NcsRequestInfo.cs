@@ -1,8 +1,6 @@
 ﻿using SuperSocket.SocketBase.Protocol;
-using System;
-using CGD;
 
-namespace SuperSocketNetwork
+namespace Networking_with_Supersocket
 {
     public class NcsRequestInfo : RequestInfo<NcsRequestInfo>
     {

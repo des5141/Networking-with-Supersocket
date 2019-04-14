@@ -2,7 +2,7 @@
 using SuperSocket.SocketBase;
 using SuperSocket.SocketBase.Config;
 
-namespace SuperSocketNetwork
+namespace Networking_with_Supersocket
 {
     public class NcsMain
     {

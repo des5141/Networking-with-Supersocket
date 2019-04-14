@@ -1,7 +1,7 @@
 ﻿using System;
-namespace SuperSocketNetwork
+namespace Networking_with_Supersocket
 {
-    class KeyWaiting
+    public class KeyWaiting
     {
         public static void func()
         {

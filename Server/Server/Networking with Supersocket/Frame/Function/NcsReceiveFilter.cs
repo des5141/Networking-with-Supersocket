@@ -2,7 +2,7 @@
 using SuperSocket.Common;
 using SuperSocket.Facility.Protocol;
 
-namespace SuperSocketNetwork
+namespace Networking_with_Supersocket
 {
     public class NcsReceiveFilter : FixedHeaderReceiveFilter<NcsRequestInfo>
     {

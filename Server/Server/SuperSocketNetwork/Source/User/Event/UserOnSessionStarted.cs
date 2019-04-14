@@ -1,6 +1,7 @@
 ﻿using SuperSocket.SocketBase;
+using Networking_with_Supersocket;
 
-namespace SuperSocketNetwork
+namespace Source
 {
     partial class NcsUser
     {
