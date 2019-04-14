@@ -58,6 +58,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Additional\AsyncSemaphore.cs" />
+    <Compile Include="Additional\AsyncLock.cs" />
     <Compile Include="Additional\KeyWaiting.cs" />
     <Compile Include="Frame\Function\NcsByteFunction.cs" />
     <Compile Include="Frame\Function\NcsReceiveFilter.cs" />
