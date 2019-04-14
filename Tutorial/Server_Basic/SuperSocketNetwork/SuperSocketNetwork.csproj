@@ -34,8 +34,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CGDbuffer%28for CSharp%29">
-      <HintPath>..\..\DLL\CGDbuffer(for CSharp).dll</HintPath>
+    <Reference Include="CGDbuffer%28for CSharp%29, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Extension\DLL\CGDbuffer(for CSharp).dll</HintPath>
     </Reference>
     <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
@@ -84,7 +85,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Networking with Supersocket\Networking with Supersocket.csproj">
+    <ProjectReference Include="..\..\..\Extension\Networking with Supersocket\Networking with Supersocket.csproj">
       <Project>{6fcda62c-e7e0-42d8-9b85-dd78b508477b}</Project>
       <Name>Networking with Supersocket</Name>
     </ProjectReference>

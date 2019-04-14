@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.28803.156
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperSocketNetwork", "SuperSocketNetwork\SuperSocketNetwork.csproj", "{65B157AB-FE40-48AB-B1FF-3752160D11FE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Networking with Supersocket", "..\..\..\..\..\TEMP\Networking with Supersocket\Networking with Supersocket.csproj", "{4813B4C7-34B8-444E-B2A4-0A62ED835863}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Networking with Supersocket", "..\..\..\Extension\Networking with Supersocket\Networking with Supersocket.csproj", "{6FCDA62C-E7E0-42D8-9B85-DD78B508477B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{65B157AB-FE40-48AB-B1FF-3752160D11FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{65B157AB-FE40-48AB-B1FF-3752160D11FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{65B157AB-FE40-48AB-B1FF-3752160D11FE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4813B4C7-34B8-444E-B2A4-0A62ED835863}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4813B4C7-34B8-444E-B2A4-0A62ED835863}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4813B4C7-34B8-444E-B2A4-0A62ED835863}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4813B4C7-34B8-444E-B2A4-0A62ED835863}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6FCDA62C-E7E0-42D8-9B85-DD78B508477B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FCDA62C-E7E0-42D8-9B85-DD78B508477B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FCDA62C-E7E0-42D8-9B85-DD78B508477B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FCDA62C-E7E0-42D8-9B85-DD78B508477B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

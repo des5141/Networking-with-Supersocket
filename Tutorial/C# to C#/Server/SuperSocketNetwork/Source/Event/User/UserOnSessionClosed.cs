@@ -1,8 +1,9 @@
 ﻿using SuperSocket.SocketBase;
+using Networking_with_Supersocket;
 
-namespace SuperSocketNetwork.Ncs
+namespace Source
 {
-    partial class NcsUser : AppSession<NcsUser, NcsRequestInfo>
+    partial class NcsUser
     {
         protected override void OnSessionClosed(CloseReason reason)
         {

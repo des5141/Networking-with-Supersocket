@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.28803.156
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperSocketNetwork", "SuperSocketNetwork\SuperSocketNetwork.csproj", "{65B157AB-FE40-48AB-B1FF-3752160D11FE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Networking with Supersocket", "Networking with Supersocket\Networking with Supersocket.csproj", "{6FCDA62C-E7E0-42D8-9B85-DD78B508477B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Networking with Supersocket", "..\..\Extension\Networking with Supersocket\Networking with Supersocket.csproj", "{6FCDA62C-E7E0-42D8-9B85-DD78B508477B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,4 +1,4 @@
-﻿namespace SuperSocketNetwork.Ncs
+﻿namespace Networking_with_Supersocket
 {
     class ServerNewSessionConnected
     {
