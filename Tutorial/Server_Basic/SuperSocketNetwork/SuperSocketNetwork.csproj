@@ -74,9 +74,8 @@
     <Compile Include="Source\Event\User\UserOnSessionClosed.cs" />
     <Compile Include="Source\Event\User\UserOnSessionStarted.cs" />
     <Compile Include="Source\Event\Session\ServerSessionClosed.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="main.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Source\main.cs" />
     <Compile Include="Source\User\UserData.cs" />
     <Compile Include="Source\User\User.cs" />
   </ItemGroup>

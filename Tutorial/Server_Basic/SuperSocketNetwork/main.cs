@@ -4,9 +4,9 @@ using Networking_with_Supersocket;
 
 namespace Source
 {
-    class main
+    class Program
     {
-        public main()
+        static void Main(string[] args)
         {
             ServerConfig mConfig = new ServerConfig()
             {
