@@ -5,8 +5,8 @@ using Networking_with_Supersocket;
 
 namespace Source
 {
-    public partial class NcsUser : AppSession<NcsUser, NcsRequestInfo>
+    class UserData
     {
-        UserData data = new UserData();
+
     }
 }

@@ -66,15 +66,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Source\Event\ServerStarted.cs" />
     <Compile Include="Source\Signal.cs" />
-    <Compile Include="Source\Session\ServerNewRequestReceived.cs" />
-    <Compile Include="Source\Session\ServerNewSessionConnected.cs" />
-    <Compile Include="Source\User\Event\UserOnSessionClosed.cs" />
-    <Compile Include="Source\User\Event\UserOnSessionStarted.cs" />
-    <Compile Include="Source\Session\ServerSessionClosed.cs" />
+    <Compile Include="Source\Event\Session\ServerNewRequestReceived.cs" />
+    <Compile Include="Source\Event\Session\ServerNewSessionConnected.cs" />
+    <Compile Include="Source\Event\User\UserOnSessionClosed.cs" />
+    <Compile Include="Source\Event\User\UserOnSessionStarted.cs" />
+    <Compile Include="Source\Event\Session\ServerSessionClosed.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Source\main.cs" />
+    <Compile Include="Source\User\UserData.cs" />
     <Compile Include="Source\User\User.cs" />
   </ItemGroup>
   <ItemGroup>

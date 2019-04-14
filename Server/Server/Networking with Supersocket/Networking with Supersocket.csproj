@@ -66,7 +66,6 @@
     <Compile Include="Frame\NcsServer.cs" />
     <Compile Include="Frame\NcsSignal.cs" />
     <Compile Include="Frame\User\NcsUser.cs" />
-    <Compile Include="Frame\User\NcsUserData.cs" />
     <Compile Include="Frame\User\NcsUserHeartbeat.cs" />
     <Compile Include="NcsMain.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
