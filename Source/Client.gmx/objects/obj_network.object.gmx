@@ -30,6 +30,10 @@ only_single();
 ping[0] = current_time;
 ping[1] = 0;
 SuperSocket_connect("127.0.0.1", 65535);
+
+
+draw_set_color(c_gray);
+draw_set_font(fnt_text);
 </string>
           </argument>
         </arguments>
@@ -101,8 +105,6 @@ SuperSocket_status();
           <argument>
             <kind>1</kind>
             <string>/// Debug
-draw_set_color(c_gray);
-draw_set_font(fnt_text);
 draw_text(0, 0, "ping " + string(ping[1]) + "#isConnected " + string(SuperSocket_isConnected()) + "##recv " + string(global.check_bytes_recv) + "#send " + string(global.check_bytes_send));
 draw_set_valign(fa_bottom);
 draw_text(0, room_height, room_get_name(room));

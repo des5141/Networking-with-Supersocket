@@ -113,42 +113,55 @@ buffer_delete(heartbeat_buffer);
             <string>/// Processing Packet
 if (ds_map_find_value(async_load, 'id') == socket) {
     if (ds_map_find_value(async_load, 'type') == network_type_data) {
+    
+        // Buffer 를 받음
         var buffer = ds_map_find_value(async_load, 'buffer');
+        
+        // Buffer Size 를 Recv 에 더하여 갱신함
         global.check_bytes_recv += buffer_get_size(buffer);
         
+        // 이전에 들어온 데이터가 있느냐 없느냐
         if (global.message_buffer == -1) {
-            global.message_buffer = buffer_create(1, buffer_grow, 1);
-            buffer_copy(buffer, 0, buffer_get_size(buffer), global.message_buffer, 0);
-        } else { buffer_copy(buffer, 0, buffer_get_size(buffer), global.message_buffer, buffer_get_size(global.message_buffer)); }
+            var temp_buffer_size = buffer_get_size(buffer);
         
-        var get_size = -1;
-        while(true) {
-            buffer_seek(global.message_buffer, buffer_seek_start, 0);
-            get_size = buffer_get_size(global.message_buffer);
-            if (get_size &lt; 4)
-                break;
-                
-            var buffer_length = buffer_read(global.message_buffer, buffer_u32) - 4;
+            // 없으면 버퍼를 만들고
+            global.message_buffer = buffer_create(temp_buffer_size, buffer_grow, 1);
             
-            var temp_buffer = buffer_create(1, buffer_grow, 1);
-            buffer_copy(global.message_buffer, buffer_tell(global.message_buffer), buffer_length, temp_buffer, 0);
-            ds_queue_enqueue(global.message_processing, temp_buffer);
+            // 들어온 데이터를 옮긴다
+            buffer_copy(buffer, 0, temp_buffer_size, global.message_buffer, 0);
+        } else {
             
-            var temp = buffer_create(1, buffer_grow, 1);
-            buffer_copy(global.message_buffer, (buffer_length + 4), get_size - (buffer_length + 4), temp, 0);
-            buffer_resize(global.message_buffer, 1);
-            buffer_copy(temp, 0, buffer_get_size(temp), global.message_buffer, 0); 
-            buffer_delete(temp);
-            if(buffer_get_size(global.message_buffer) == 1) {
-                buffer_delete(global.message_buffer);
-                global.message_buffer = -1;
-                break;
-            }
+            // 이미 있는 경우, 뒤에 덮어 씌운다
+            buffer_copy(buffer, 0, temp_buffer_size, global.message_buffer, buffer_get_size(global.message_buffer));
         }
         
-        while (ds_queue_size(global.message_processing) != 0) {
+        // 받은 버퍼의 사이즈
+        var get_size = -1;
+        
+        // 받은 버퍼가 뽑을 수 있는 버퍼가 될 때까지 계속해서 While 를 돌림
+        while(true) {
+            // 버퍼의 처음 지점으로 오프셋을 옮김
+            buffer_seek(global.message_buffer, buffer_seek_start, 0);
+            
+            // 현재 버퍼의 사이즈를 들고 옴
+            get_size = buffer_get_size(global.message_buffer);
+            
+            // 버퍼의 사이즈가 4 보다 작으면 break;
+            if (get_size &lt; 4)
+                break;
+            
+            // 패킷의 헤더에 명시되어있는 길이를 들고 온다
+            var buffer_length = buffer_read(global.message_buffer, buffer_u32) - 4;
+            
+            // 길이를 바탕으로 버퍼를 만든다
+            var temp_buffer = buffer_create(buffer_length, buffer_fixed, 1);
+            
+            // 만든 버퍼로 데이터를 잘라 옮긴다
+            buffer_copy(global.message_buffer, buffer_tell(global.message_buffer), buffer_length, temp_buffer, 0);
+            
+            // 최종 완성된 버퍼를 처리한다
             with(obj_network) {
-                processing_buffer = ds_queue_dequeue(global.message_processing);
+                processing_buffer = temp_buffer;
                 if not(buffer_get_size(processing_buffer) == 1){
                     signal = buffer_read(processing_buffer, buffer_u16);
                     
@@ -171,6 +184,24 @@ if (ds_map_find_value(async_load, 'id') == socket) {
                         event_user(0);
                 }
                 buffer_delete(processing_buffer);
+            }
+            
+            // 첫 버퍼 길이에서, 큐에 넣은 버퍼 길이를 뺀다
+            var left_offset = get_size - (buffer_length + 4);
+            // 만약 버퍼가 남았다면,
+            if (left_offset &gt; 0) {
+                var temp = buffer_create(left_offset, buffer_fast, 1);
+                buffer_copy(global.message_buffer, buffer_length + 4, left_offset, temp, 0);
+                buffer_resize(global.message_buffer, 1);
+                buffer_copy(temp, 0, buffer_get_size(temp), global.message_buffer, 0); 
+                buffer_delete(temp);
+            }
+            // 아니라면,
+            else {
+                // 버퍼는 -1 로 비워진다
+                buffer_delete(global.message_buffer);
+                global.message_buffer = -1;
+                break;
             }
         }
     }
