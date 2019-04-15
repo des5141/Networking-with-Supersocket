@@ -24,3 +24,42 @@ namespace Source
         }
     }
 }
+
+
+/*
+ * 
+            Test().Wait();
+            Test2().Wait();
+
+        public static async Task Test()
+        {
+            using (var releaser = await TaskLock.LockAsync())
+            {
+                new Task(() =>
+                {
+                    lock (testing_instance)
+                    {
+                        Console.WriteLine("Task!!");
+                        Task.Delay(1000).Wait();
+                        Test().Wait();
+                    }
+                }).Start();
+            }
+        }
+
+        public static async Task Test2()
+        {
+            using (var releaser = await TaskLock.LockAsync())
+            {
+                new Task(() =>
+                {
+                    lock (testing_instance)
+                    {
+                        Console.WriteLine("-- this is second");
+                        Task.Delay(1000).Wait();
+                        Test2().Wait();
+                    }
+                }).Start();
+            }
+        }
+*/

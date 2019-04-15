@@ -107,4 +107,3 @@ with(object_index) {
 }
 if(check)
     instance_destroy();
-
