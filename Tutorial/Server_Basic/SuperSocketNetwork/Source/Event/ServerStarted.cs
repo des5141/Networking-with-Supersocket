@@ -6,7 +6,7 @@ namespace Source
     {
         public static void func()
         {
-            Console.WriteLine("Server Started!");
+            Console.WriteLine("Hello Networking with Supersocket!");
         }
     }
 }
