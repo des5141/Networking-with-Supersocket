@@ -40,25 +40,33 @@ namespace SuperSocketNetwork.Ncs
         {
             new Task(async () =>
             {
-                if (heartbeat_count >= 3)
+                if (heartbeat_count >= 10)
+                {
                     heartbeat = false;
+                }
                 else
+                {
                     heartbeat_count++;
+                }
 
 
                 Send(NcsTemplateBuffer.HeartbeatBuffer1);
 
                 await Task.Delay(1000);
 
-                if ((heartbeat == false) && (heartbeat_count >= 3) || (instance_die == true))
+                if ((heartbeat == false) && (heartbeat_count >= 10) || (instance_die == true))
                 {
                     this.Close();
                 }
                 else
+                {
                     heartbeat_start();
+                }
 
-                if (heartbeat_count >= 3)
+                if (heartbeat_count >= 10)
+                {
                     heartbeat_count = 0;
+                }
             }).Start();
         }
         public void Send(CGD.buffer buffer)

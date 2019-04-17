@@ -81,7 +81,6 @@ namespace SuperSocketNetwork_Console
 
         private static void tcpSession_Closed(object sender, EventArgs e)
         {
-
         }
 
         private static void tcpSession_Connected(object sender, EventArgs e)

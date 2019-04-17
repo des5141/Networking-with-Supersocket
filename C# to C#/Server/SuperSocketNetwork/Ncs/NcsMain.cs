@@ -50,6 +50,7 @@ namespace SuperSocketNetwork.Ncs
 
         void NcsServer_NewUserConnected(NcsUser user)
         {
+            Console.WriteLine("new User");
             user.heartbeat_start();
         }
 
