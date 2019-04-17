@@ -1,0 +1,7 @@
+﻿namespace Source
+{
+    class UserData
+    {
+
+    }
+}
