@@ -4,7 +4,7 @@ using SuperSocket.SocketBase;
 
 namespace Ncs.Server
 {
-    public class NcsUser : AppSession<NcsUser, NcsRequestInfo>
+    public class NcsUser<T> : AppSession<T, NcsRequestInfo> where T : AppSession<T, NcsRequestInfo>, new()
     {
         ///  Override Functions
         protected override void OnSessionStarted()
@@ -15,7 +15,6 @@ namespace Ncs.Server
         protected override void HandleException(Exception e)
         {
             Console.WriteLine("Application error: {0}", e.Message);
-            NcsModule.HandleException.Invoke(e);
         }
 
         protected override void OnSessionClosed(CloseReason reason)

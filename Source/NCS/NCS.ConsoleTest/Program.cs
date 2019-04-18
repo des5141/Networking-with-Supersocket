@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CGD;
 using Ncs.Routing;
 using Ncs.Server;
 using SuperSocket.SocketBase;
@@ -13,11 +14,11 @@ namespace Ncs.ConsoleTest
     class Program
     {
         public static Action NewSessionConnected = () => { };
-        private static NcsMain server;
+        private static NcsMain<NewUser> server;
         static void Main(string[] args)
         {
             NcsTemplateBuffer.SetTempBuffer();
-            server = new NcsMain(new ServerConfig()
+            server = new NcsMain<NewUser>(new ServerConfig()
             {
                 Port = 65535,
                 Ip = "Any",
@@ -33,14 +34,18 @@ namespace Ncs.ConsoleTest
         }
     }
 
-    public class Test : NcsModule
+    public class NewUser : AppSession<NewUser, NcsRequestInfo>
     {
-        bool heartbeat = false;
+        public bool heartbeat = false;
+    }
+
+    public class Test : NcsModule<NewUser>
+    {
         public Test()
         {
             packet[(ushort)1] = (user, info) =>
             {
-                heartbeat = true;
+                user.heartbeat = true;
                 user.Send(NcsTemplateBuffer.HeartbeatBuffer2);
             };
 
@@ -54,7 +59,7 @@ namespace Ncs.ConsoleTest
                     {
                         if (heartbeat_count >= 10)
                         {
-                            heartbeat = false;
+                            user.heartbeat = false;
                         }
                         else
                         {
@@ -62,7 +67,7 @@ namespace Ncs.ConsoleTest
                         }
                         user.Send(NcsTemplateBuffer.HeartbeatBuffer1);
                         await Task.Delay(1000);
-                        if ((heartbeat == false) && (heartbeat_count >= 10))
+                        if ((user.heartbeat == false) && (heartbeat_count >= 10))
                         {
                             user.Close();
                         }

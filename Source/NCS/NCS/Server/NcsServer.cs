@@ -9,7 +9,7 @@ using SuperSocket.SocketBase.Protocol;
 
 namespace Ncs.Server
 {
-    public class NcsServer : AppServer<NcsUser, NcsRequestInfo>
+    public class NcsServer<T> : AppServer<T, NcsRequestInfo> where T : AppSession<T, NcsRequestInfo>, new()
     {
         public NcsServer() : base(new DefaultReceiveFilterFactory<NcsReceiveFilter, NcsRequestInfo>())
         {

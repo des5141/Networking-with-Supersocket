@@ -71,6 +71,7 @@
     <Compile Include="Routing\Packet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Routing\NcsScan.cs" />
+    <Compile Include="Server\NcsDefine.cs" />
     <Compile Include="Server\NcsMain.cs" />
     <Compile Include="Server\NcsOption.cs" />
     <Compile Include="Server\NcsReceiveFilter.cs" />

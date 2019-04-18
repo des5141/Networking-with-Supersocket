@@ -7,14 +7,14 @@ namespace Ncs.Server
 {
     public class NcsReceiveFilter : FixedHeaderReceiveFilter<NcsRequestInfo>
     {
-        public NcsReceiveFilter() : base(NcsMain.Option.HeaderSize)
+        public NcsReceiveFilter() : base(NcsDefine.Option.HeaderSize)
         {
 
         }
 
         protected override int GetBodyLengthFromHeader(byte[] header, int offset, int length)
         {
-            return NcsMain.Option.ReceiveFunc(header, offset, length) - NcsMain.Option.HeaderSize;
+            return NcsDefine.Option.ReceiveFunc(header, offset, length) - NcsDefine.Option.HeaderSize;
         }
 
         protected override NcsRequestInfo ResolveRequestInfo(ArraySegment<byte> header, byte[] bodyBuffer, int offset, int length)

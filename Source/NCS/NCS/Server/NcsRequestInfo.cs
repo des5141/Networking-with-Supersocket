@@ -13,7 +13,7 @@ namespace Ncs.Server
 
         public NcsRequestInfo(byte[] body, byte[] buffer)
         {
-            Key = NcsMain.Option.TypeFunc(new CGD.buffer(buffer, 0, buffer.Length));
+            Key = NcsDefine.Option.TypeFunc(new CGD.buffer(buffer, 0, buffer.Length));
             this.Body = body;
             Buffer = new CGD.buffer(buffer, 0, buffer.Length);
         }
